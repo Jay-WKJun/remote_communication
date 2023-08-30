@@ -5,13 +5,17 @@
   "main": "./index.ts",
   "types": "./index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "generate": "protoc --plugin=protoc-gen-ts_proto=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./ --ts_proto_opt=outputServices=grpc-js,env=node,esModuleInterop=true ./protos/*.proto",
+    "server": "ts-node ./index.ts",
+    "client": "ts-node ./client.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@grpc/grpc-js": "^1.9.1",
+    "protobufjs": "^7.2.5",
+    "ts-node": "^10.9.1",
     "ts-proto": "^1.156.7"
   }
 }
